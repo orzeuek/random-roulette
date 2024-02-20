@@ -1,5 +1,6 @@
 import configureDI from "./src/dependenciesContainer";
-import {beforeStart, initRoutes} from "./src/server";
+import {beforeStart} from "./src/beforeStart";
+import {initRoutes} from "./src/routes";
 import express from "express";
 
 const app = express();

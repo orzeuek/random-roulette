@@ -5,11 +5,13 @@ import {IDIContainer} from "rsdi/dist/types";
 import {RollCommandHandler} from "./rollCommandHandler";
 import * as mysql from "mysql2/promise";
 
-export default function configureDI(): IDIContainer<{
+export type IDependencies = IDIContainer<{
     ElementsRepository: Promise<ElementsRepository>,
     mysqlConnection: Promise<mysql.Connection>,
     RollCommandHandler: Promise<RollCommandHandler>,
-}> {
+}>;
+
+export default function configureDI(): IDependencies {
     return new DIContainer()
         .add('mysqlConnection',
             (container: object) => {
