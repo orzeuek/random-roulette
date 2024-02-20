@@ -5,7 +5,7 @@ export class RandomElementButton extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            element: '',
+            element: {},
         };
     }
 
@@ -13,17 +13,17 @@ export class RandomElementButton extends React.Component {
         const randomElement = await this.props.rollAction();
 
         this.setState({
-            element: randomElement.text
+            element: randomElement
         })
     }
 
     render() {
         const {buttonTextKey} = this.props;
+        const currentLanguage = this.props.store.getState()[this.props.currentLanguageKey];
 
-        // @todo make a dynamic change of element once language has been changed!
         return (
             <div>
-                <p>{this.state.element}</p>
+                <p>{this.state.element[currentLanguage]}</p>
                 <button onClick={this.handleClick}>{i18n.t(buttonTextKey)}</button>
             </div>
         );

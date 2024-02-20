@@ -52,6 +52,8 @@ class App extends React.Component {
             <RandomElementButton
                 buttonTextKey='roll'
                 rollAction={this.getNewElement}
+                store={this.store}
+                currentLanguageKey={LANGUAGE}
             >
             </RandomElementButton>
             <SelectableToggleList
