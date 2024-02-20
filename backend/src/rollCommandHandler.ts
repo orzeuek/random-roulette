@@ -20,6 +20,7 @@ export class RollCommandHandler {
 
         res.send({
             text: element[requestedLanguage],
+            ..._.pick(element, ['pl', 'en']),
         });
     }
 }

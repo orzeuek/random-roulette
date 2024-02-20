@@ -1,5 +1,3 @@
-import {TEXTS} from "../assets/texts";
-
 const React = require("react");
 const {i18n} = require('../app/i18n');
 
@@ -22,6 +20,7 @@ export class RandomElementButton extends React.Component {
     render() {
         const {buttonTextKey} = this.props;
 
+        // @todo make a dynamic change of element once language has been changed!
         return (
             <div>
                 <p>{this.state.element}</p>
