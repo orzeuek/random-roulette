@@ -44,6 +44,7 @@ class App extends React.Component {
         return <div>
             <LanguageSwitch
                 onChangeLanguage={this.changeLanguage}
+                // @todo load languages list from backend!
                 languagesList={[{value: 'en', textKey: 'english'}, {value: 'pl', textKey: 'polish'}]}
                 defaultLanguage={'en'}
             >
@@ -54,6 +55,7 @@ class App extends React.Component {
             >
             </RandomElementButton>
             <SelectableToggleList
+                // @todo load categories from backend!
                 items={[...CATEGORIES]}
                 updateState={this.setSelectedCategories}>
             </SelectableToggleList>
