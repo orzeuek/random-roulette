@@ -27,8 +27,7 @@ class App extends React.Component {
 
     getNewElement() {
         const tags = store.storeObj.getState()[SELECTED_CATEGORIES];
-        const language = store.storeObj.getState()[LANGUAGE];
-        const query = new URLSearchParams({ language, tags: [] });
+        const query = new URLSearchParams({ tags: [] });
         for (const tag of tags) query.append('tags', tag);
 
         return fetch(`/api/roll?` + query.toString())
