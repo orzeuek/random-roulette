@@ -23,3 +23,6 @@ BACKEND_URL=localhost:3000 npm run run-dev
 cd backend
 DB_HOST=127.0.0.1 npm run run-dev  
 ```
+
+# check
+Go to http://localhost:3001/ and click around :)

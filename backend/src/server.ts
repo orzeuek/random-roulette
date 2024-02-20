@@ -1,6 +1,8 @@
 import express  from "express";
 import _ from 'lodash';
 import {NextHandleFunction} from "connect";
+import {ElementsRepository} from "./elementsRepository";
+import {RollCommandHandler} from "./rollCommandHandler";
 
 const DEFAULT_OPTIONS = {
     port: 3000,
@@ -53,4 +55,16 @@ export class Server {
             }
         ));
     }
+}
+
+
+export async function beforeStart(app, diContainer) {
+    const elementsRepo: ElementsRepository = await diContainer.ElementsRepository;
+    await elementsRepo.loadElements();
+    console.log('elements loaded!');
+}
+
+export async function initRoutes(app, diContainer) {
+    const rollCommandHandler = await diContainer.get('RollCommandHandler') as RollCommandHandler;
+    app.route('/roll').get(rollCommandHandler.handle.bind(rollCommandHandler))
 }

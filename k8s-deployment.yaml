@@ -1,3 +1,7 @@
+## @todo
+## we have too many elements after fresh deployment, duplicated FE and BE - check it.
+## @todo
+## add wait for database....
 apiVersion: apps/v1
 kind: Deployment
 metadata:

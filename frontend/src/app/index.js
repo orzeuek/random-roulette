@@ -31,7 +31,7 @@ class App extends React.Component {
         const query = new URLSearchParams({ language, tags: [] });
         for (const tag of tags) query.append('tags', tag);
 
-        return fetch(`/api?` + query.toString())
+        return fetch(`/api/roll?` + query.toString())
             .then(response => response.json())
     }
 

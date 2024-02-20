@@ -7,10 +7,12 @@ export interface ElementRow {
 }
 
 export class ElementsRepository {
-    private readonly db: mysql.Connection
+    private readonly db: mysql.Connection;
+    private elements: ElementRow[];
 
     constructor(db: mysql.Connection) {
         this.db = db;
+        this.elements = [];
     }
 
     public async loadElements(): Promise<ElementRow[]> {
@@ -20,6 +22,11 @@ export class ElementsRepository {
             'SELECT * FROM `elements`'
         ) as any;
 
-        return rows;
+        this.elements = rows;
+        return this.elements;
+    }
+
+    get elementsList() {
+        return this.elements;
     }
 }

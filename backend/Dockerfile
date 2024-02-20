@@ -10,4 +10,5 @@ RUN npm install
 COPY index.ts ./
 COPY ./src ./src
 
-CMD node ./index.ts
+## @todo it can't live at prod. Add compilation!
+CMD npm run run-dev
