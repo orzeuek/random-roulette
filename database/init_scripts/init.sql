@@ -10,6 +10,8 @@ CREATE TABLE elements (
                           categories JSON
 );
 
+!-- @todo tidy up categories mess....
+
 INSERT INTO elements VALUES
                          ('blabla1-AB-pl','blabla1-AB-en', '["category1", "category2"]'),
                          ('blabla2-A-pl','blabla2-A-en', '["category1"]'),
